@@ -18,8 +18,15 @@ export default {
 
   data() {
     return {
-      store
+      store,
+      imgWidth: "w300"
     };
+  },
+
+  computed: {
+    image() {
+      return store.srcImg + this.imgWidth
+    }
   },
 
   methods: {
@@ -61,7 +68,7 @@ export default {
       </h2>
 
       <ul>
-        <CardsComponents class="col-3 mt-3 border me-2" v-for="result in store.FilmResults" :title="result.title" :original_title="result.original_title" :language="result.original_language" :vote="result.vote_average" />
+        <CardsComponents class="col-3 mt-3 border me-2" v-for="result in store.FilmResults" :key="result.id" :img="`${image}${result.poster_path}`" :title="result.title" :original_title="result.original_title" :language="result.original_language" :vote="result.vote_average" />
       </ul>
 
     </div>
@@ -100,7 +107,7 @@ export default {
       </h2>
 
       <ul>
-        <CardsComponents class="col-3 mt-3 me-1 border" v-for="result in store.tvResults" :title="result.name" :original_title="result.original_name" :language="result.original_language" :vote="result.vote_average" />
+        <CardsComponents class="col-3 mt-3 me-1 border" v-for="result in store.tvResults" :key="result.id" :img="`${image}${result.poster_path}`" :title="result.name" :original_title="result.original_name" :language="result.original_language" :vote="result.vote_average" />
       </ul>
   </div>
   <!-----
