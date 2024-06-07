@@ -64,7 +64,7 @@ export default {
   <div class="container" v-show="store.FilmResults.length">
 
       <h2>
-        Movies
+        Movies <font-awesome-icon icon="fa-solid fa-star" />
       </h2>
 
       <ul>

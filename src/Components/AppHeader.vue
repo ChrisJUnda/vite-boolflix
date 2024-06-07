@@ -23,7 +23,7 @@ export default {
                 </div>
                 <div class="col-3">
                     <button type="button" class="btn btn-primary" @change="$emit('search')">
-                        Search
+                        Search 
                     </button>
                 </div>
             </div>

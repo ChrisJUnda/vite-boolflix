@@ -29,6 +29,10 @@ export default {
                 }
             }
         },
+
+        voteinStars(vote) {
+            return Math.round(vote / 2);
+        }
     }
 }
 
@@ -51,10 +55,15 @@ export default {
             </p>
         
         </div>
+
+        <span v-for="star in voteinStars(vote)">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </span>
         
-        <p> 
-            {{ vote }} 
-        </p>
+        <span v-for="star in (5 - voteinStars(vote))">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </span>
+        
     
     </li>
 
@@ -79,6 +88,12 @@ p{
 .lang {
     width: 50px;
     height: 50px;
+}
+
+.fa-star,
+.fa-star-o {
+    color: rgb(235, 200, 0);
+    margin: 2px;
 }
 
 </style>
